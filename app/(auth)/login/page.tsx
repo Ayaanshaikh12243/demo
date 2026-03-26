@@ -6,13 +6,13 @@ import { useRouter } from 'next/navigation'
 import { useAuth } from '@/lib/auth-context'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { 
-  AlertCircle, 
-  Loader2, 
-  Eye, 
-  EyeOff, 
-  ShieldCheck, 
-  Globe, 
+import {
+  AlertCircle,
+  Loader2,
+  Eye,
+  EyeOff,
+  ShieldCheck,
+  Globe,
   ArrowRight,
   ChevronRight,
   Lock,
@@ -33,9 +33,9 @@ export default function LoginPage() {
     e.preventDefault()
     setError('')
     setIsLoading(true)
-    
+
     const success = await login(email, password)
-    
+
     if (success) {
       router.push('/dashboard')
     } else {
@@ -56,8 +56,8 @@ export default function LoginPage() {
       <div className="w-full max-w-lg relative">
         {/* Logo Section */}
         <div className="text-center mb-10 animate-in fade-in slide-in-from-top-4 duration-700">
-           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-600/10 border border-blue-500/20 mb-6 shadow-blue-glow overflow-hidden p-1">
-            <img src="/logo.jpeg" alt="Logo" className="w-full h-full object-contain" />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-600/10 border border-blue-500/20 mb-6 shadow-blue-glow overflow-hidden p-1">
+            <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-2xl font-black tracking-tighter uppercase mb-2">
             Plastic<span className="text-blue-500">AI</span>
@@ -94,7 +94,7 @@ export default function LoginPage() {
                   <label className="text-[11px] font-bold text-white/40 uppercase tracking-widest ml-1">Email Address</label>
                   <div className="relative group">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20 group-focus-within:text-blue-500 transition-colors" />
-                    <Input 
+                    <Input
                       type="email"
                       placeholder="name@company.com"
                       className="h-12 bg-white/5 border-white/10 rounded-xl focus:border-blue-500/50 focus:ring-blue-500/20 pl-11 pr-4 font-medium"
@@ -112,7 +112,7 @@ export default function LoginPage() {
                   </div>
                   <div className="relative group">
                     <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20 group-focus-within:text-blue-500 transition-colors" />
-                    <Input 
+                    <Input
                       type={showPassword ? "text" : "password"}
                       placeholder="••••••••"
                       className="h-12 bg-white/5 border-white/10 rounded-xl focus:border-blue-500/50 focus:ring-blue-500/20 pl-11 pr-12 font-medium"
@@ -120,7 +120,7 @@ export default function LoginPage() {
                       onChange={(e) => setPassword(e.target.value)}
                       required
                     />
-                    <button 
+                    <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-4 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors"
@@ -152,7 +152,7 @@ export default function LoginPage() {
 
             <div className="mt-10 flex flex-col items-center gap-6">
               <div className="flex items-center gap-2 text-sm text-white/40">
-                New to the system? 
+                New to the system?
                 <Link href="/register" className="text-blue-500 font-bold hover:underline">Create Account</Link>
               </div>
 

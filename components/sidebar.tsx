@@ -12,12 +12,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { 
-  Languages, 
-  Upload, 
-  History, 
-  BarChart3, 
-  LogOut, 
+import {
+  Languages,
+  Upload,
+  History,
+  BarChart3,
+  LogOut,
   Settings,
   Loader2,
   BookOpen,
@@ -57,7 +57,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Mobile Menu Toggle */}
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md"
       >
@@ -66,7 +66,7 @@ export default function Sidebar() {
 
       {/* Sidebar Overlay (Mobile) */}
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setIsOpen(false)}
         />
@@ -80,11 +80,11 @@ export default function Sidebar() {
         <div className="p-8 pb-4">
           <div className="flex items-center gap-3.5 mb-8">
             <div className="w-11 h-11 rounded-[14px] bg-blue-600/10 border border-blue-500/20 flex items-center justify-center shadow-[0_0_20px_-5px_rgba(37,99,235,0.4)] transition-transform hover:scale-105 active:scale-95 cursor-default overflow-hidden p-1">
-              <img src="/logo.jpeg" alt="Logo" className="w-full h-full object-contain" />
+              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <h1 className="text-xl font-black text-white tracking-tighter leading-none">Plastic<span className="text-blue-500">AI</span></h1>
-              <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-white/30 mt-1">Neural Node 0x{language.substring(0,2).toUpperCase()}</p>
+              <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-white/30 mt-1">Neural Node 0x{language.substring(0, 2).toUpperCase()}</p>
             </div>
           </div>
 
@@ -100,8 +100,8 @@ export default function Sidebar() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-56 bg-white/[0.03] backdrop-blur-2xl border-white/10 rounded-2xl p-2 shadow-2xl">
                 {['English', 'Hindi', 'Marathi', 'Urdu'].map((lang) => (
-                  <DropdownMenuItem 
-                    key={lang} 
+                  <DropdownMenuItem
+                    key={lang}
                     onClick={() => { setLanguage(lang as any); setIsOpen(false); }}
                     className={cn(
                       "text-xs font-bold uppercase tracking-widest py-3 px-4 rounded-xl cursor-pointer mb-1 last:mb-0 transition-colors",
@@ -121,7 +121,7 @@ export default function Sidebar() {
           {navigation.map((item) => {
             const Icon = item.icon
             const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
-            
+
             return (
               <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
                 <Button
