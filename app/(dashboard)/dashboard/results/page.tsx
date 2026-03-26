@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/button'
@@ -20,7 +20,7 @@ import {
   Fingerprint
 } from 'lucide-react'
 
-export default function ResultsPage() {
+function ResultsContent() {
   const { language, t } = useLanguage()
   const searchParams = useSearchParams()
   const plasticType = searchParams.get('type') || 'Unknown'
@@ -194,7 +194,7 @@ export default function ResultsPage() {
                       </div>
 
                       <div className="p-8 bg-white/[0.02] border border-white/5 rounded-3xl space-y-6">
-                         <p className="text-[10px] uppercase font-black tracking-widest text-blue-500 flex items-center gap-2">
+                         <p className="text-[10px] uppercase font-black tracking-widest text-blue-500 flex items-center gap-3">
                              <ListChecks className="w-4 h-4"/> {t('Prep Steps')}
                          </p>
                          <ul className="space-y-4">
@@ -257,6 +257,18 @@ export default function ResultsPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ResultsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen py-32 flex items-center justify-center grayscale opacity-20">
+        <Loader2 className="w-12 h-12 text-blue-500 animate-spin" />
+      </div>
+    }>
+      <ResultsContent />
+    </Suspense>
   )
 }
 
